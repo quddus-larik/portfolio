@@ -17,6 +17,9 @@ import PixelBlast from '@/components/PixelBlast';
 import { LinkPreview } from '@/components/ui/link-preview';
 import GlassSurface from '@/components/GlassSurface';
 import { Button } from '@/components/ui/button';
+import { RainbowButton } from '@/components/ui/rainbow-button';
+import { ArrowDown } from 'lucide-react';
+import { TextRoll } from '@/components/ui/text-roll';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
@@ -63,13 +66,12 @@ export default function Home() {
 
     return (
         <div className='overflow-x-hidden'>
-            <Navbar />
 
             <div className="h-svh w-svw bg-gray-50 flex justify-center items-end">
                 <PixelBlast
                     variant="square"
                     pixelSize={4}
-                    color="#001219"
+                    color="#99A1AF"
                     patternScale={2}
                     patternDensity={1}
                     pixelSizeJitter={0}
@@ -80,6 +82,7 @@ export default function Home() {
                     speed={0.6}
                     edgeFade={0.25}
                     transparent
+                    className={""}
                 />
                 <div className='absolute left-1/2 -translate-x-1/2 top-30 w-full flex flex-col items-center justify-center gap-2 pt-16'>
                     <Shuffle
@@ -96,15 +99,18 @@ export default function Home() {
                         respectReducedMotion={true}
                         fontSize='10rem'
                     />
-                    <div className='w-fit flex items-center justify-center gap-1 h-10 px-6 border rounded-full bg-slate-700/30 backdrop-blur-md border-white/10 font-clash font-medium'>A Full Stack developer that build UX focused Frontend and Scalable Backends with <LinkPreview url='https://nextjs.org/' className='font-semibold'>Nextjs</LinkPreview>, <LinkPreview url='https://mongodb.com/' className='font-semibold'>Mongodb</LinkPreview> More.  </div>
-                    
+                    <RevealText duration={1}>
+                        <p className='w-fit flex items-center justify-center gap-1 h-10 px-6 border rounded-full bg-slate-100/10 backdrop-blur-md border-white/10 font-clash font-medium tracking-wider'>I specialize in crafting full-stack MERN applications that turn ideas into reliable, intuitive, and goal-oriented web products.</p>
+                    </RevealText>
+
+                    <RainbowButton className='rounded-full min-w-8 font-clash tracking-wider'>My Journey</RainbowButton>
                 </div>
             </div>
 
             <div ref={containerRef} className="flex h-svh w-full">
                 <div className="min-h-svh w-svw bg-gray-50 shrink-0 gap-2 flex-col horizontal-section flex p-5" >
                     <div className="grid grid-cols-4 grid-rows-4 gap-4 w-full h-full">
-                        <div className="col-span-3 row-span-2 w-full bg-transparent grid place-content-center">
+                        <div className="col-span-5 row-span-2 w-full bg-transparent grid place-content-center">
                             <BounceCards
                                 containerWidth={300}
                                 containerHeight={250}
@@ -115,9 +121,6 @@ export default function Home() {
                                 transformStyles={transformStyles}
                                 enableHover={true}
                             />
-                        </div>
-                        <div className="row-span-2 grid place-content-center col-start-4 w-full">
-                            <ScaleRotateBox />
                         </div>
                         <div className="col-span-3 row-span-2 col-start-2 row-start-3 w-full flex flex-col gap-2 items-start">
                             <Shuffle
@@ -138,8 +141,8 @@ export default function Home() {
                                 <div className='font-clash font-medium text-xl text-left'>Skilled in <LinkPreview url='https://mongodb.com'>MongoDB</LinkPreview>, <LinkPreview url='https://expressjs.com'>Express.js</LinkPreview>, <LinkPreview url='reactjs.com'>React</LinkPreview>, and <LinkPreview url='https://nodejs.com'>Node.</LinkPreview> with a strong commitment to building intuitive user experiences and writing efficient, maintainable code. Dedicated to turning ideas into real-world digital solutions and always eager to collaborate, learn, and grow through impactful projects.</div>
                             </RevealText>
                             <div className='w-full flex gap-3'>
-                                <Button className='font-clash font-medium rounded-none tracking-wider'><SiGithub/>Github</Button>
-                                <Button className='font-clash font-medium rounded-none tracking-wider'><SiDribbble/>Dribbble</Button>
+                                <Button className='font-clash font-medium rounded-none tracking-wider'><SiGithub />Github</Button>
+                                <Button className='font-clash font-medium rounded-none tracking-wider'><SiDribbble />Dribbble</Button>
                             </div>
                         </div>
 
@@ -150,16 +153,32 @@ export default function Home() {
                 </div>
 
                 {/* MODIFIED: Set viewport={{ once: false }} */}
-                <div className="h-svh w-svw bg-red-300 shrink-0 horizontal-section flex items-center justify-center" >
-                    <motion.p
-                        className='font-akira'
-                        initial={{ fontSize: "32px", rotate: "10deg" }}
-                        whileInView={{ fontSize: "120px", rotate: "0deg" }}
-                        viewport={{ once: false }}
-                        transition={{ duration: 0.60 }}
-                    >
-                        Hi!
-                    </motion.p>
+                <div className="h-svh w-svw bg-gray-50/80 shrink-0 horizontal-section flex flex-col p-5" >
+                    <TextRoll
+                        className='text-8xl font-akira'
+                        whileInView
+                        animateOnHover
+                    >FULL STACK ENGINEER</TextRoll>
+                    <Shuffle
+                        text="{ PROJECTS }"
+                        shuffleDirection="right"
+                        duration={0.50}
+                        animationMode="evenodd"
+                        shuffleTimes={1}
+                        ease="power3.out"
+                        stagger={0.03}
+                        threshold={0.1}
+                        triggerOnce={false}
+                        triggerOnHover={true}
+                        respectReducedMotion={true}
+                        fontSize='2rem'
+                        font='Clash'
+                        style={{ fontWeight: "bold" }}
+                    />
+
+                    <div className='w-full h-full grid place-content-center'>
+                        <ScaleRotateBox />
+                    </div>
                 </div>
 
                 {/* MODIFIED: Set viewport={{ once: false }} */}

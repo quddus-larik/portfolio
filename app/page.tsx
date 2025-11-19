@@ -137,7 +137,7 @@ export default function Home() {
                 <div className="sticky top-13 h-svh flex gap-2 flex-col items-start justify-start bg-gray-200 px-8 py-3">
                     <div className="w-[200px] h-10 text-white bg-gray-900 my-2 ml-3 text-2xl"/>
                     <RevealText duration={1}>
-                        <div className="text-8xl font-akira text-left">PROJECTS</div>
+                        <div className="text-8xl font-akira text-left">PROJECTS !</div>
                     </RevealText>
                     
 

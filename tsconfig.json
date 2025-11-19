@@ -31,6 +31,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "components/custom/copy.jsx", "components/custom/animateonscroll.jsx"  ],
+, "components/custom/revealtext.jsx", "components/custom/animateonscroll.jsx", "components/custom/splittext.jsx"  ],
   "exclude": ["node_modules"]
 }

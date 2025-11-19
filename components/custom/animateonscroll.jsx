@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function ScaleRotateBox() {
+export function ScaleRotateBox({ className = "" }) {
   const boxRef = useRef(null);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export function ScaleRotateBox() {
 
   return (
     <div className="min-h-[150vh] flex items-center justify-center">
-      <div ref={boxRef} className="h-40 w-40 bg-black" />
+      <div ref={boxRef} className={className} />
     </div>
   );
 }

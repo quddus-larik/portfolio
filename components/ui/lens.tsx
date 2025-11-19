@@ -46,7 +46,7 @@ export const Lens: React.FC<LensProps> = ({
   return (
     <div
       ref={containerRef}
-      className="relative overflow-hidden rounded-lg z-20"
+      className="relative overflow-hidden rounded-none z-20"
       onMouseEnter={() => {
         setIsHovering(true);
       }}
@@ -108,7 +108,7 @@ export const Lens: React.FC<LensProps> = ({
                 }}
               >
                 <div
-                  className="absolute inset-0"
+                  className="absolute inset-0 w-fit"
                   style={{
                     transform: `scale(${zoomFactor})`,
                     transformOrigin: `${mousePosition.x}px ${mousePosition.y}px`,

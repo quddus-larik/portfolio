@@ -3,7 +3,7 @@
 import { Lenis } from "lenis/react"
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { SiDribbble, SiGithub, SiNextdotjs, SiNodedotjs, SiReact, SiShadcnui, SiTailwindcss } from 'react-icons/si';
+import { SiClerk, SiCss3, SiDribbble, SiExpress, SiGit, SiGithub, SiHtml5, SiMongodb, SiMysql, SiNextdotjs, SiNextui, SiNodedotjs, SiNpm, SiPnpm, SiReact, SiRedis, SiRender, SiSass, SiShadcnui, SiSupabase, SiTailwindcss, SiVercel } from 'react-icons/si';
 import { RevealText } from '@/components/custom/revealtext';
 // Removed unused Spotlight
 import BounceCards from '@/components/BounceCards';
@@ -11,12 +11,8 @@ import Shuffle from '@/components/Shuffle';
 import { ScaleRotateBox } from '@/components/custom/animateonscroll';
 import PixelBlast from '@/components/PixelBlast';
 import { Button } from '@/components/ui/button';
-import { RainbowButton } from '@/components/ui/rainbow-button';
-import MagnetLines from "@/components/MagnetLines";
 import { ArrowUpRight, Star } from "lucide-react";
 import { Lens } from "@/components/ui/lens";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
@@ -53,6 +49,60 @@ export default function Home() {
         }
     ];
 
+    const projects = [
+        {
+            title: 'ProJect Name',
+            description: 'A Describtion for project Hahaha hooho',
+            image: '/images/mongo.png',
+            github: '#',
+            explore: '#'
+        },
+        {
+            title: 'ProJect Name',
+            description: 'A Describtion for project Hahaha hooho',
+            image: '/images/mongo.png',
+            github: '#',
+            explore: '#'
+        },
+        {
+            title: 'ProJect Name',
+            description: 'A Describtion for project Hahaha hooho',
+            image: '/images/mongo.png',
+            github: '#',
+            explore: '#'
+        }
+    ];
+
+    const frontendSkills = [
+        { icon: SiReact, label: 'React JS' },
+        { icon: SiNextdotjs, label: 'Next JS' },
+        { icon: SiShadcnui, label: 'ShadCN UI' },
+        { icon: SiTailwindcss, label: 'Tailwind CSS' },
+        { icon: SiNextui, label: 'Hero UI' },
+        { icon: SiSass, label: 'SASS / SCSS' },
+        { icon: SiHtml5, label: 'HTML 5' },
+        { icon: SiCss3, label: 'CSS 3' }
+    ];
+
+    const backendSkills = [
+        { icon: SiNodedotjs, label: 'Node JS' },
+        { icon: SiExpress, label: 'Express JS' },
+        { icon: SiMongodb, label: 'Mongo DB' },
+        { icon: SiMysql, label: 'MySQL DB' },
+        { icon: SiRedis, label: 'Redis DB' },
+        { icon: SiGit, label: 'Git Bash' },
+        { icon: SiPnpm, label: 'PNPM' },
+        { icon: SiClerk, label: 'Clerk Auth' }
+    ];
+
+    const cloudSkills = [
+        { icon: SiGithub, label: 'Github' },
+        { icon: SiVercel, label: 'Vercel' },
+        { icon: SiRender, label: 'Render' },
+        { icon: SiSupabase, label: 'Supabase' },
+        { icon: SiMongodb, label: 'Mongo Atlas' }
+    ];
+
 
 
     return (
@@ -63,7 +113,7 @@ export default function Home() {
                 <PixelBlast
                     variant="square"
                     pixelSize={4}
-                    color="#030712"
+                    color="#4A5565"
                     patternScale={2}
                     patternDensity={1}
                     pixelSizeJitter={0}
@@ -149,7 +199,6 @@ export default function Home() {
                     <RevealText duration={1}>
                         <div className="text-8xl font-akira text-left">I CREATE EXPERIENCES NOT JUST WEBSITES!</div>
                     </RevealText>
-
                 </div>
                 <div className="sticky top-13 h-svh flex gap-2 flex-col items-start justify-start bg-gray-200 px-8 py-3">
                     <div className="w-[200px] h-10 text-white bg-gray-900 my-2 ml-3 text-2xl" />
@@ -158,39 +207,21 @@ export default function Home() {
                         <p className="font-clash text-xl text-left font-medium">These Projects that Realy Solves Problems.</p>
                     </div>
                     <div className="w-full h-full grid grid-cols-3 grid-rows-1">
-                        <div className="w-1/2">
-                            <Lens>
-                                <img src={"/images/mongo.png"} alt="mongo" />
-                            </Lens>
-                            <p className="font-clash font-semibold text-2xl">ProJect Name</p>
-                            <p className="font-clash text-lg">A Describtion for project Hahaha hooho</p>
-                            <div className="flex flex-row gap-1 items-center mt-3">
-                                <Button size={"icon"} className="rounded-none"><SiGithub /></Button>
-                                <Button className="rounded-none">Explore<ArrowUpRight /></Button>
-                            </div>
-                        </div>
-                        <div className="w-1/2">
-                            <Lens>
-                                <img src={"/images/mongo.png"} alt="mongo" />
-                            </Lens>
-                            <p className="font-clash font-semibold text-2xl">ProJect Name</p>
-                            <p className="font-clash text-lg">A Describtion for project Hahaha hooho</p>
-                            <div className="flex flex-row gap-1 items-center mt-3">
-                                <Button size={"icon"} className="rounded-none"><SiGithub /></Button>
-                                <Button className="rounded-none">Explore<ArrowUpRight /></Button>
-                            </div>
-                        </div>
-                        <div className="w-1/2">
-                            <Lens>
-                                <img src={"/images/mongo.png"} alt="mongo" />
-                            </Lens>
-                            <p className="font-clash font-semibold text-2xl">ProJect Name</p>
-                            <p className="font-clash text-lg">A Describtion for project Hahaha hooho</p>
-                            <div className="flex flex-row gap-1 items-center mt-3">
-                                <Button size={"icon"} className="rounded-none"><SiGithub /></Button>
-                                <Button className="rounded-none">Explore<ArrowUpRight /></Button>
-                            </div>
-                        </div>
+                        {
+                            projects.map((p, i) => (
+                                <div className="w-1/2" key={i}>
+                                    <Lens>
+                                        <img src={p.image} alt={p.title} />
+                                    </Lens>
+                                    <p className="font-clash font-semibold text-2xl">{p.title}</p>
+                                    <p className="font-clash text-lg">{p.description}</p>
+                                    <div className="flex flex-row gap-1 items-center mt-3">
+                                        <Button size={"icon"} className="rounded-none"><SiGithub /></Button>
+                                        <Button className="rounded-none">Explore<ArrowUpRight /></Button>
+                                    </div>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
                 <div className="sticky top-26 h-svh flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
@@ -201,7 +232,7 @@ export default function Home() {
                         <div className="w-full h-full grid grid-cols-3 grid-rows-1 mt-4 gap-2">
                             {
                                 initialAwards.map((itm, idx) => (
-                                    <div className="w-full p-1 h-auto flex flex-col gap-1 justify-start items-start">
+                                    <div className="w-full p-1 h-auto flex flex-col gap-1 justify-start items-start" key={idx}>
                                         <Lens>
                                             <img src={itm.image} alt={itm.institute} className="h-60" />
                                         </Lens>
@@ -219,18 +250,57 @@ export default function Home() {
                     <div className="text-8xl font-akira text-left">SKILLS</div>
                     <p className="font-clash text-xl text-left font-medium">The Professional Skills that Helps Me to Develop Scalable Sites.</p>
                     <div className="w-full h-full grid grid-cols-3 grid-rows-1 mt-4 gap-2">
-                        <div className="bg-gray-200 p-2 flex flex-col gap-2">
-                            <p className="font-akira text-3xl">Frontend</p>
-                            <img src="/images/ui.png" alt="uis"/>
-                            <div className="w-full grid grid-cols-2 grid-rows-2 gap-2">
+                        <div className="p-2 flex flex-col gap-2">
+                            <p className="font-akira text-3xl">FRONTEND TECHNOLOGIES</p>
+                            <img src="/images/ui.png" alt="uis" />
+                            <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
                                 {
-                                    [0,1,2,3].map((itm)=>(
-                                        <div className="w-full bg-black h-10 items-center gap-2 flex p-3">
-                                            <SiReact className="text-white text-xl"/>
-                                            <p className="text-white text-xl font-clash font-medium">REACT JS</p>
-                                            <p className="text-lg font-clash text-white"></p>
-                                        </div>
-                                    ))
+                                    frontendSkills.map((s, i) => {
+                                        const Icon = s.icon;
+                                        return (
+                                            <div className="w-full bg-black h-10 items-center gap-2 flex p-3" key={i}>
+                                                <Icon className="text-white text-xl" />
+                                                <p className="text-white text-xl font-clash font-medium">{s.label}</p>
+                                                <p className="text-lg font-clash text-white"></p>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                        <div className="p-2 flex flex-col gap-2">
+                            <p className="font-akira text-3xl">BACKEND TECHNOLOGIES</p>
+                            <img src="/images/ui.png" alt="uis" />
+                            <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
+                                {
+                                    backendSkills.map((s, i) => {
+                                        const Icon = s.icon;
+                                        return (
+                                            <div className="w-full bg-black h-10 items-center gap-2 flex p-3" key={i}>
+                                                <Icon className="text-white text-xl" />
+                                                <p className="text-white text-xl font-clash font-medium">{s.label}</p>
+                                                <p className="text-lg font-clash text-white"></p>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                        <div className="p-2 flex flex-col gap-2">
+                            <p className="font-akira text-3xl">CLOUD TECHNOLOGIES</p>
+                            <img src="/images/ui.png" alt="uis" />
+                            <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
+                                {
+                                    cloudSkills.map((s, i) => {
+                                        const Icon = s.icon;
+                                        return (
+                                            <div className="w-full bg-black h-10 items-center gap-2 flex p-3" key={i}>
+                                                <Icon className="text-white text-xl" />
+                                                <p className="text-white text-xl font-clash font-medium">{s.label}</p>
+                                                <p className="text-lg font-clash text-white"></p>
+                                            </div>
+                                        )
+                                    })
                                 }
                             </div>
                         </div>

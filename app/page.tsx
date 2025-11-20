@@ -3,7 +3,7 @@
 import { Lenis } from "lenis/react"
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { SiDribbble, SiGithub } from 'react-icons/si';
+import { SiDribbble, SiGithub, SiNextdotjs, SiNodedotjs, SiReact, SiShadcnui, SiTailwindcss } from 'react-icons/si';
 import { RevealText } from '@/components/custom/revealtext';
 // Removed unused Spotlight
 import BounceCards from '@/components/BounceCards';
@@ -13,8 +13,10 @@ import PixelBlast from '@/components/PixelBlast';
 import { Button } from '@/components/ui/button';
 import { RainbowButton } from '@/components/ui/rainbow-button';
 import MagnetLines from "@/components/MagnetLines";
-import { Star } from "lucide-react";
+import { ArrowUpRight, Star } from "lucide-react";
 import { Lens } from "@/components/ui/lens";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
@@ -34,6 +36,21 @@ export default function Home() {
         "rotate(-5deg)",
         "rotate(5deg) translate(70px)",
         "rotate(-5deg) translate(150px)"
+    ];
+
+    const initialAwards = [
+        {
+            title: "Web3.0 Development",
+            institute: "Algorand Inc",
+            url: "https://www.algorand.com",
+            image: "/images/algo_certificate.png",
+        },
+        {
+            title: "Full Stack Development",
+            institute: "codeSignal Inc",
+            url: "https://codesignal.com/",
+            image: "/images/fullstack.png",
+        }
     ];
 
 
@@ -128,26 +145,96 @@ export default function Home() {
             </div>
             <div className="relative">
                 <div className="sticky top-0 h-svh flex flex-col items-start justify-start bg-gray-100 px-8 py-3">
-                    <div className="w-[200px] h-8 text-white bg-gray-900 my-2 text-2xl"/>
+                    <div className="w-[200px] h-8 text-white bg-gray-900 my-2 text-2xl" />
                     <RevealText duration={1}>
                         <div className="text-8xl font-akira text-left">I CREATE EXPERIENCES NOT JUST WEBSITES!</div>
                     </RevealText>
 
                 </div>
                 <div className="sticky top-13 h-svh flex gap-2 flex-col items-start justify-start bg-gray-200 px-8 py-3">
-                    <div className="w-[200px] h-10 text-white bg-gray-900 my-2 ml-3 text-2xl"/>
-                    <RevealText duration={1}>
+                    <div className="w-[200px] h-10 text-white bg-gray-900 my-2 ml-3 text-2xl" />
+                    <div>
                         <div className="text-8xl font-akira text-left">PROJECTS !</div>
-                    </RevealText>
-                    
-
+                        <p className="font-clash text-xl text-left font-medium">These Projects that Realy Solves Problems.</p>
+                    </div>
+                    <div className="w-full h-full grid grid-cols-3 grid-rows-1">
+                        <div className="w-1/2">
+                            <Lens>
+                                <img src={"/images/mongo.png"} alt="mongo" />
+                            </Lens>
+                            <p className="font-clash font-semibold text-2xl">ProJect Name</p>
+                            <p className="font-clash text-lg">A Describtion for project Hahaha hooho</p>
+                            <div className="flex flex-row gap-1 items-center mt-3">
+                                <Button size={"icon"} className="rounded-none"><SiGithub /></Button>
+                                <Button className="rounded-none">Explore<ArrowUpRight /></Button>
+                            </div>
+                        </div>
+                        <div className="w-1/2">
+                            <Lens>
+                                <img src={"/images/mongo.png"} alt="mongo" />
+                            </Lens>
+                            <p className="font-clash font-semibold text-2xl">ProJect Name</p>
+                            <p className="font-clash text-lg">A Describtion for project Hahaha hooho</p>
+                            <div className="flex flex-row gap-1 items-center mt-3">
+                                <Button size={"icon"} className="rounded-none"><SiGithub /></Button>
+                                <Button className="rounded-none">Explore<ArrowUpRight /></Button>
+                            </div>
+                        </div>
+                        <div className="w-1/2">
+                            <Lens>
+                                <img src={"/images/mongo.png"} alt="mongo" />
+                            </Lens>
+                            <p className="font-clash font-semibold text-2xl">ProJect Name</p>
+                            <p className="font-clash text-lg">A Describtion for project Hahaha hooho</p>
+                            <div className="flex flex-row gap-1 items-center mt-3">
+                                <Button size={"icon"} className="rounded-none"><SiGithub /></Button>
+                                <Button className="rounded-none">Explore<ArrowUpRight /></Button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="sticky top-0 h-screen flex flex-col items-center justify-center bg-purple-600 text-white">
-                    <h2 className="text-4xl">The Third Title</h2>
-                    <p>Scroll Down</p>
+                <div className="sticky top-26 h-svh flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
+                    <div className="w-[200px] h-8 text-white bg-gray-900 my-2 ml-6 text-2xl" />
+                    <div>
+                        <div className="text-8xl font-akira text-left">CERTIFICATIONS</div>
+                        <p className="font-clash text-xl text-left font-medium">I certtified in Skills that will be more helpful.</p>
+                        <div className="w-full h-full grid grid-cols-3 grid-rows-1 mt-4 gap-2">
+                            {
+                                initialAwards.map((itm, idx) => (
+                                    <div className="w-full p-1 h-auto flex flex-col gap-1 justify-start items-start">
+                                        <Lens>
+                                            <img src={itm.image} alt={itm.institute} className="h-60" />
+                                        </Lens>
+                                        <div>
+                                            <p className="font-clash font-semibold text-2xl">{itm.title}</p>
+                                            <a href={itm.url} className="font-clash text-lg hover:ml-2 transition-all">{itm.institute}</a>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
                 </div>
-                <div className="sticky top-0 h-screen flex flex-col items-center justify-center bg-neutral-800 text-white">
-                    <h2 className="text-4xl">The Fourth Title</h2>
+                <div className="sticky top-26 h-svh flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
+                    <div className="text-8xl font-akira text-left">SKILLS</div>
+                    <p className="font-clash text-xl text-left font-medium">The Professional Skills that Helps Me to Develop Scalable Sites.</p>
+                    <div className="w-full h-full grid grid-cols-3 grid-rows-1 mt-4 gap-2">
+                        <div className="bg-gray-200 p-2 flex flex-col gap-2">
+                            <p className="font-akira text-3xl">Frontend</p>
+                            <img src="/images/ui.png" alt="uis"/>
+                            <div className="w-full grid grid-cols-2 grid-rows-2 gap-2">
+                                {
+                                    [0,1,2,3].map((itm)=>(
+                                        <div className="w-full bg-black h-10 items-center gap-2 flex p-3">
+                                            <SiReact className="text-white text-xl"/>
+                                            <p className="text-white text-xl font-clash font-medium">REACT JS</p>
+                                            <p className="text-lg font-clash text-white"></p>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

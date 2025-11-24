@@ -30,8 +30,6 @@ export function ScaleRotateBox({ className = "" }) {
   }, []);
 
   return (
-    <div className="min-h-[150vh] flex items-center justify-center">
-      <div ref={boxRef} className={className} />
-    </div>
+      <div ref={boxRef} className={className+" z-20"} />
   );
 }

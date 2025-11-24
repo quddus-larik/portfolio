@@ -31,8 +31,6 @@ export interface ShuffleProps {
   triggerOnce?: boolean;
   respectReducedMotion?: boolean;
   triggerOnHover?: boolean;
-  font?: string;
-  fontSize?: string; 
 }
 
 const Shuffle: React.FC<ShuffleProps> = ({
@@ -58,9 +56,7 @@ const Shuffle: React.FC<ShuffleProps> = ({
   colorTo,
   triggerOnce = true,
   respectReducedMotion = true,
-  triggerOnHover = true,
-  font = 'Akira',
-  fontSize = '[3rem]'
+  triggerOnHover = true
 }) => {
   const ref = useRef<HTMLElement>(null);
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -353,12 +349,11 @@ const Shuffle: React.FC<ShuffleProps> = ({
     }
   );
 
-  const baseTw = `inline-block whitespace-normal break-words will-change-transform uppercase leading-none`;
+  const baseTw = 'inline-block whitespace-normal break-words will-change-transform uppercase text-2xl leading-none';
   const commonStyle: React.CSSProperties = {
     textAlign,
-    fontFamily: `'${font}', sans-serif`,
-    fontSize,
-    ...style,
+    fontFamily: `'Press Start 2P', sans-serif`,
+    ...style
   };
 
   const classes = `${baseTw} ${ready ? 'visible' : 'invisible'} ${className}`.trim();

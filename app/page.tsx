@@ -13,9 +13,13 @@ import PixelBlast from '@/components/PixelBlast';
 import { Button } from '@/components/ui/button';
 import { ArrowUpRight, Star } from "lucide-react";
 import { Lens } from "@/components/ui/lens";
+import { useWindowSize } from "@/hooks";
+import ScrollVelocity from "@/components/custom/ScrollVelocity";
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+    const { height, width } = useWindowSize();
 
 
     const images = [
@@ -139,19 +143,16 @@ export default function Home() {
                         triggerOnce={false}
                         triggerOnHover={true}
                         respectReducedMotion={true}
-                        fontSize='10rem'
+                        fontSize={width < 640 ? "6rem" : "10rem"}
                     />
-                    <RevealText duration={1}>
-                        <p className='w-fit flex items-center justify-center gap-1 h-10 px-6 border rounded-full bg-slate-100/10 backdrop-blur-md border-white/10 font-clash font-medium tracking-wider'>I specialize in crafting full-stack MERN applications that turn ideas into reliable, intuitive, and goal-oriented web products.</p>
-                    </RevealText>
-
+                    <p className='w-fit flex items-center justify-center gap-1 h-10 px-6 md:px-4 sm:px-2 rounded-full bg-slate-100/10 backdrop-blur-md font-clash font-medium text-lg text-center sm:text-xs tracking-wider'>I specialize in crafting full-stack MERN applications that turn ideas into reliable, intuitive, and goal-oriented web products.</p>
                 </div>
             </div>
 
             <div className="flex h-svh w-full">
                 <div className="min-h-svh w-svw bg-gray-50  gap-2 flex-col  flex p-5" >
-                    <div className="grid grid-cols-4 grid-rows-4 gap-4 w-full h-full">
-                        <div className="col-span-5 row-span-2 w-full bg-transparent grid place-content-center">
+                    <div className="flex flex-col gap-4 w-full h-full">
+                        <div className="col-span-full row-span-2 sm:col-span-full sm:row-span-auto w-full bg-transparent grid place-content-center">
                             <BounceCards
                                 containerWidth={300}
                                 containerHeight={250}
@@ -163,32 +164,45 @@ export default function Home() {
                                 enableHover={true}
                             />
                         </div>
-                        <div className="col-span-3 row-span-2 col-start-2 row-start-3 w-full flex flex-col gap-2 items-start">
-                            <Shuffle
-                                text="About Me"
-                                shuffleDirection="right"
-                                duration={0.35}
-                                animationMode="evenodd"
-                                shuffleTimes={1}
-                                ease="power3.out"
-                                stagger={0.03}
-                                threshold={0.1}
-                                triggerOnce={false}
-                                triggerOnHover={true}
-                                respectReducedMotion={true}
-                                fontSize='4rem'
-                            />
-                            <RevealText duration={1} >
-                                <div className='font-clash font-medium text-xl text-left'>Skilled in  MongoDB, Express.js, React, and Node. with a strong commitment to building intuitive user experiences and writing efficient, maintainable code. Dedicated to turning ideas into real-world digital solutions and always eager to collaborate, learn, and grow through impactful projects.</div>
-                            </RevealText>
-                            <div className='w-full flex gap-3'>
-                                <Button className='font-clash font-medium rounded-none tracking-wider'><SiGithub />Github</Button>
-                                <Button className='font-clash font-medium rounded-none tracking-wider'><SiDribbble />Dribbble</Button>
-                            </div>
-                        </div>
+                        <div className="w-full flex flex-col gap-2 items-start">
+                            <div className="w-full flex flex-col items-start justify-start">
+                                <div className="w-full">
+                                    <Shuffle
+                                        text="About Me"
+                                        shuffleDirection="right"
+                                        duration={0.35}
+                                        animationMode="evenodd"
+                                        shuffleTimes={1}
+                                        ease="power3.out"
+                                        stagger={0.03}
+                                        threshold={0.1}
+                                        triggerOnce={false}
+                                        triggerOnHover={true}
+                                        respectReducedMotion={true}
+                                        fontSize={width < 640 ? '2rem' : '4rem'}
+                                    />
+                                    <RevealText duration={1} >
+                                        <div className='font-clash font-medium lg:text-xl sm:text-sm md:text-lg text-left'>Skilled in  MongoDB, Express.js, React, and Node. with a strong commitment to building intuitive user experiences and writing efficient, maintainable code. Dedicated to turning ideas into real-world digital solutions and always eager to collaborate, learn, and grow through impactful projects.</div>
+                                    </RevealText>
+                                </div>
+                                <div className='w-full flex gap-3 mt-4'>
+                                    <Button className='font-clash font-medium rounded-none tracking-wider'><SiGithub />Github</Button>
+                                    <Button className='font-clash font-medium rounded-none tracking-wider'><SiDribbble />Dribbble</Button>
+                                </div>
+                                <div className="relative mt-4 overflow-hidden -rotate-1 opacity-15">
+                                    <div className="mt-6 mb-2 bg-slate-200" />
 
-                        <div className="row-span-2 col-start-1 row-start-3 w-full bg-transparent grid place-content-center ">
-                            <ScaleRotateBox className='h-40 w-40 bg-black' />
+                                    <ScrollVelocity
+                                        texts={["MONGODB ✦ EXPRESSJS ✦ REACTJS ✦ NODEJS ✦ "]}
+                                        velocity={40}
+                                        className="custom-scroll-text font-poppins-md whitespace-nowrap text-gray-900"
+                                    />
+                                    <div className="mt-2 bg-slate-200" />
+                                    <div className="absolute top-0 left-0 w-24 h-full pointer-events-none bg-gradient-to-r from-white to-transparent" />
+                                    <div className="absolute top-0 right-0 w-24 h-full pointer-events-none bg-gradient-to-l from-white to-transparent" />
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
                 </div>

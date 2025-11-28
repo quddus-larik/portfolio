@@ -5,7 +5,7 @@ import { SplitText as GSAPSplitText } from 'gsap/SplitText';
 import { useGSAP } from '@gsap/react';
 import { JSX } from 'react';
 
-gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP);
+gsap.registerPlugin(ScrollTrigger, GSAPSplitText);
 
 export interface ShuffleProps {
   text: string;
@@ -122,6 +122,8 @@ const Shuffle: React.FC<ShuffleProps> = ({
       const build = () => {
         teardown();
 
+        const computedFont = getComputedStyle(el).fontFamily;
+
         splitRef.current = new GSAPSplitText(el, {
           type: 'chars',
           charsClass: 'shuffle-char',
@@ -156,18 +158,18 @@ const Shuffle: React.FC<ShuffleProps> = ({
 
           const firstOrig = ch.cloneNode(true) as HTMLElement;
           firstOrig.className = 'inline-block text-left';
-          Object.assign(firstOrig.style, { width: w + 'px' });
+          Object.assign(firstOrig.style, { width: w + 'px', fontFamily: computedFont });
 
           ch.setAttribute('data-orig', '1');
           ch.className = 'inline-block text-left';
-          Object.assign(ch.style, { width: w + 'px' });
+          Object.assign(ch.style, { width: w + 'px', fontFamily: computedFont });
 
           inner.appendChild(firstOrig);
           for (let k = 0; k < rolls; k++) {
             const c = ch.cloneNode(true) as HTMLElement;
             if (scrambleCharset) c.textContent = rand(scrambleCharset);
             c.className = 'inline-block text-left';
-            Object.assign(c.style, { width: w + 'px' });
+            Object.assign(c.style, { width: w + 'px', fontFamily: computedFont });
             inner.appendChild(c);
           }
           inner.appendChild(ch);
@@ -350,9 +352,13 @@ const Shuffle: React.FC<ShuffleProps> = ({
   );
 
   const baseTw = 'inline-block whitespace-normal break-words will-change-transform uppercase text-2xl leading-none';
+  const userHasFont = className && /font[-[]/i.test(className);
+
+  const fallbackFont = userHasFont ? {} : { fontFamily: `'Press Start 2P', sans-serif` };
+
   const commonStyle: React.CSSProperties = {
     textAlign,
-    fontFamily: `'Press Start 2P', sans-serif`,
+    ...fallbackFont,
     ...style
   };
 

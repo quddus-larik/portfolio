@@ -143,7 +143,8 @@ export default function Home() {
                         triggerOnce={false}
                         triggerOnHover={true}
                         respectReducedMotion={true}
-                        fontSize={width < 640 ? "6rem" : "10rem"}
+                        style={{ fontSize: width < 640 ? "6rem" : "10rem" }}
+                        className="font-akira"
                     />
                     <p className='w-fit flex items-center justify-center gap-1 h-10 px-6 md:px-4 sm:px-2 rounded-full bg-slate-100/10 backdrop-blur-md font-clash font-medium text-lg text-center sm:text-xs tracking-wider'>I specialize in crafting full-stack MERN applications that turn ideas into reliable, intuitive, and goal-oriented web products.</p>
                 </div>
@@ -179,7 +180,8 @@ export default function Home() {
                                         triggerOnce={false}
                                         triggerOnHover={true}
                                         respectReducedMotion={true}
-                                        fontSize={width < 640 ? '2rem' : '4rem'}
+                                        style={{ fontSize: width < 640 ? '2rem' : '4rem', }}
+                                        className="font-akira"
                                     />
                                     <RevealText duration={1} >
                                         <div className='font-clash font-medium lg:text-xl sm:text-sm md:text-lg text-left'>Skilled in  MongoDB, Express.js, React, and Node. with a strong commitment to building intuitive user experiences and writing efficient, maintainable code. Dedicated to turning ideas into real-world digital solutions and always eager to collaborate, learn, and grow through impactful projects.</div>

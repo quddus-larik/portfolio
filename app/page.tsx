@@ -16,6 +16,7 @@ import { Lens } from "@/components/ui/lens";
 import { useWindowSize } from "@/hooks";
 import ScrollVelocity from "@/components/custom/ScrollVelocity";
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
@@ -44,14 +45,18 @@ export default function Home() {
             institute: "Algorand Inc",
             url: "https://www.algorand.com",
             image: "/images/algo_certificate.png",
+            date: "2025"
         },
         {
             title: "Full Stack Development",
             institute: "codeSignal Inc",
             url: "https://codesignal.com/",
             image: "/images/fullstack.png",
+            date: "2025"
         }
     ];
+
+    
 
     const projects = [
         {
@@ -203,7 +208,7 @@ export default function Home() {
                                     <div className="absolute top-0 left-0 w-24 h-full pointer-events-none bg-gradient-to-r from-white to-transparent" />
                                     <div className="absolute top-0 right-0 w-24 h-full pointer-events-none bg-gradient-to-l from-white to-transparent" />
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -224,109 +229,109 @@ export default function Home() {
                     </div>
                     <div className="w-full h-full grid grid-cols-3 grid-rows-1">
                         {
-                            projects.map((p, i) => (
-                                <div className="w-1/2" key={i}>
-                                    <Lens>
-                                        <img src={p.image} alt={p.title} />
-                                    </Lens>
-                                    <p className="font-clash font-semibold text-2xl">{p.title}</p>
-                                    <p className="font-clash text-lg">{p.description}</p>
-                                    <div className="flex flex-row gap-1 items-center mt-3">
-                                        <Button size={"icon"} className="rounded-none"><SiGithub /></Button>
-                                        <Button className="rounded-none">Explore<ArrowUpRight /></Button>
-                                    </div>
-                                </div>
-                            ))
+                            // projects.map((p, i) => (
+                            //     <div className="w-1/2" key={i}>
+                            //         <Lens>
+                            //             <img src={p.image} alt={p.title} />
+                            //         </Lens>
+                            //         <p className="font-clash font-semibold text-2xl">{p.title}</p>
+                            //         <p className="font-clash text-lg">{p.description}</p>
+                            //         <div className="flex flex-row gap-1 items-center mt-3">
+                            //             <Button size={"icon"} className="rounded-none"><SiGithub /></Button>
+                            //             <Button className="rounded-none">Explore<ArrowUpRight /></Button>
+                            //         </div>
+                            //     </div>
+                            // ))
                         }
                     </div>
                 </div>
-                <div className="sticky top-26 h-svh flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
+                <div className="sticky top-0 h-svh flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
                     <div className="w-[200px] h-8 text-white bg-gray-900 my-2 ml-6 text-2xl" />
                     <div>
                         <div className="text-8xl font-akira text-left">CERTIFICATIONS</div>
                         <p className="font-clash text-xl text-left font-medium">I certtified in Skills that will be more helpful.</p>
-                        <div className="w-full h-full grid grid-cols-3 grid-rows-1 mt-4 gap-2">
-                            {
-                                initialAwards.map((itm, idx) => (
-                                    <div className="w-full p-1 h-auto flex flex-col gap-1 justify-start items-start" key={idx}>
-                                        <Lens>
-                                            <img src={itm.image} alt={itm.institute} className="h-60" />
-                                        </Lens>
-                                        <div>
-                                            <p className="font-clash font-semibold text-2xl">{itm.title}</p>
-                                            <a href={itm.url} className="font-clash text-lg hover:ml-2 transition-all">{itm.institute}</a>
+                        <div className="w-full h-full flex flex-row mt-4 gap-2 relative">
+                        {
+                            initialAwards.map((c, i) => (
+                                    <div key={i} className="rounded-sm p-2 bg-gray-800 w-1/2 h-fit flex flex-row gap-2">
+                                        <img src={c.image} alt={c.title} loading="lazy" className="w-1/2 object-cover rounded-sm" />
+                                        <div className="w-full">
+                                            <p className="text-xl font-clash font-semibold text-gray-50">{c.title || "Clashis"}</p>
+                                            <p className="text-lg font-clash font-normal text-gray-50 mt-1">{c.institute || "Certified in Skills that will be more helpful."}</p>
+                                            <p className="text-sm font-clash font-normal text-gray-50">{c.date || "Certified in Skills that will be more helpful."}</p>
+                                            
                                         </div>
                                     </div>
-                                ))
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+            <div className="sticky top-26 h-svh flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
+                <div className="text-8xl font-akira text-left">SKILLS</div>
+                <p className="font-clash text-xl text-left font-medium">The Professional Skills that Helps Me to Develop Scalable Sites.</p>
+                <div className="w-full h-full grid grid-cols-3 grid-rows-1 mt-4 gap-2">
+                    <div className="p-2 flex flex-col gap-2">
+                        <p className="font-akira text-3xl">FRONTEND TECHNOLOGIES</p>
+                        <img src="/images/ui.png" alt="uis" />
+                        <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
+                            {
+                                frontendSkills.map((s, i) => {
+                                    const Icon = s.icon;
+                                    return (
+                                        <div className="w-full bg-black h-10 items-center gap-2 flex p-3" key={i}>
+                                            <Icon className="text-white text-xl" />
+                                            <p className="text-white text-xl font-clash font-medium">{s.label}</p>
+                                            <p className="text-lg font-clash text-white"></p>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
+                    <div className="p-2 flex flex-col gap-2">
+                        <p className="font-akira text-3xl">BACKEND TECHNOLOGIES</p>
+                        <img src="/images/ui.png" alt="uis" />
+                        <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
+                            {
+                                backendSkills.map((s, i) => {
+                                    const Icon = s.icon;
+                                    return (
+                                        <div className="w-full bg-black h-10 items-center gap-2 flex p-3" key={i}>
+                                            <Icon className="text-white text-xl" />
+                                            <p className="text-white text-xl font-clash font-medium">{s.label}</p>
+                                            <p className="text-lg font-clash text-white"></p>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
+                    <div className="p-2 flex flex-col gap-2">
+                        <p className="font-akira text-3xl">CLOUD TECHNOLOGIES</p>
+                        <img src="/images/ui.png" alt="uis" />
+                        <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
+                            {
+                                cloudSkills.map((s, i) => {
+                                    const Icon = s.icon;
+                                    return (
+                                        <div className="w-full bg-black h-10 items-center gap-2 flex p-3" key={i}>
+                                            <Icon className="text-white text-xl" />
+                                            <p className="text-white text-xl font-clash font-medium">{s.label}</p>
+                                            <p className="text-lg font-clash text-white"></p>
+                                        </div>
+                                    )
+                                })
                             }
                         </div>
                     </div>
                 </div>
-                <div className="sticky top-26 h-svh flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
-                    <div className="text-8xl font-akira text-left">SKILLS</div>
-                    <p className="font-clash text-xl text-left font-medium">The Professional Skills that Helps Me to Develop Scalable Sites.</p>
-                    <div className="w-full h-full grid grid-cols-3 grid-rows-1 mt-4 gap-2">
-                        <div className="p-2 flex flex-col gap-2">
-                            <p className="font-akira text-3xl">FRONTEND TECHNOLOGIES</p>
-                            <img src="/images/ui.png" alt="uis" />
-                            <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
-                                {
-                                    frontendSkills.map((s, i) => {
-                                        const Icon = s.icon;
-                                        return (
-                                            <div className="w-full bg-black h-10 items-center gap-2 flex p-3" key={i}>
-                                                <Icon className="text-white text-xl" />
-                                                <p className="text-white text-xl font-clash font-medium">{s.label}</p>
-                                                <p className="text-lg font-clash text-white"></p>
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                        </div>
-                        <div className="p-2 flex flex-col gap-2">
-                            <p className="font-akira text-3xl">BACKEND TECHNOLOGIES</p>
-                            <img src="/images/ui.png" alt="uis" />
-                            <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
-                                {
-                                    backendSkills.map((s, i) => {
-                                        const Icon = s.icon;
-                                        return (
-                                            <div className="w-full bg-black h-10 items-center gap-2 flex p-3" key={i}>
-                                                <Icon className="text-white text-xl" />
-                                                <p className="text-white text-xl font-clash font-medium">{s.label}</p>
-                                                <p className="text-lg font-clash text-white"></p>
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                        </div>
-                        <div className="p-2 flex flex-col gap-2">
-                            <p className="font-akira text-3xl">CLOUD TECHNOLOGIES</p>
-                            <img src="/images/ui.png" alt="uis" />
-                            <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
-                                {
-                                    cloudSkills.map((s, i) => {
-                                        const Icon = s.icon;
-                                        return (
-                                            <div className="w-full bg-black h-10 items-center gap-2 flex p-3" key={i}>
-                                                <Icon className="text-white text-xl" />
-                                                <p className="text-white text-xl font-clash font-medium">{s.label}</p>
-                                                <p className="text-lg font-clash text-white"></p>
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
+        </div>
 
 
 
 
-        </Lenis>
+        </Lenis >
     );
 }

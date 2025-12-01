@@ -227,7 +227,7 @@ export default function Home() {
                                 <p className="font-clash font-semibold text-lg tracking-wider">OneManage</p>
                                 <p className="font-clash text-sm tracking-wider">employee management system</p>
                             </div>
-                            <p className="font-clash font-semibold text-lg tracking-wider"></p>
+                            <p className="font-clash font-medium text-xs tracking-wider hover:text-shadow-md cursor-pointer transition-all" onClick={()=> window.open("https://one-manage.vercel.app","_blank")}>one-manage.vercel.app</p>
                         </div>
 
                         {

@@ -8,7 +8,6 @@ import { RevealText } from '@/components/custom/revealtext';
 // Removed unused Spotlight
 import BounceCards from '@/components/BounceCards';
 import Shuffle from '@/components/Shuffle';
-import { ScaleRotateBox } from '@/components/custom/animateonscroll';
 import PixelBlast from '@/components/PixelBlast';
 import { Button } from '@/components/ui/button';
 import { ArrowUpRight, Star } from "lucide-react";
@@ -43,44 +42,37 @@ export default function Home() {
         {
             title: "Web3.0 Development",
             institute: "Algorand Inc",
-            url: "https://www.algorand.com",
+            description: "I had learnt how NFT, Blockchain, Decentralized applications, and other Web3.0 technologies work.",
+            url: "https://algorandtechnologies.com/",
             image: "/images/algo_certificate.png",
-            date: "2025"
+            date: "May 2025"
         },
         {
             title: "Full Stack Development",
             institute: "codeSignal Inc",
+            description: "I had learnt full stack development for creating UX focused user intefaces and scalable backend.",
             url: "https://codesignal.com/",
             image: "/images/fullstack.png",
-            date: "2025"
+            date: "June 2025"
+        },
+        {
+            title: "MySQL Database",
+            institute: "codeSignal Inc",
+            description: "I had learnt Structured Query Language for development scalable and reliable databases.",
+            url: "https://codesignal.com/",
+            image: "/images/mysql.png",
+            date: "June 2025"
+        },
+        {
+            title: "Azure Fundamentals",
+            institute: "simplilern Inc",
+            description: "I had learnt Basic Azure DevOps for backend deployment",
+            url: "https://codesignal.com/",
+            image: "/images/azure_certification.webp",
+            date: "June 2025"
         }
     ];
 
-    
-
-    const projects = [
-        {
-            title: 'ProJect Name',
-            description: 'A Describtion for project Hahaha hooho',
-            image: '/images/mongo.png',
-            github: '#',
-            explore: '#'
-        },
-        {
-            title: 'ProJect Name',
-            description: 'A Describtion for project Hahaha hooho',
-            image: '/images/mongo.png',
-            github: '#',
-            explore: '#'
-        },
-        {
-            title: 'ProJect Name',
-            description: 'A Describtion for project Hahaha hooho',
-            image: '/images/mongo.png',
-            github: '#',
-            explore: '#'
-        }
-    ];
 
     const frontendSkills = [
         { icon: SiReact, label: 'React JS' },
@@ -116,7 +108,7 @@ export default function Home() {
 
     return (
 
-        <Lenis root className='overflow-hidden'>
+        <Lenis root>
 
             <div className="h-svh w-full bg-gray-50 flex justify-center items-end">
                 <PixelBlast
@@ -148,7 +140,7 @@ export default function Home() {
                         triggerOnce={false}
                         triggerOnHover={true}
                         respectReducedMotion={true}
-                        style={{ fontSize: width < 640 ? "6rem" : "10rem" }}
+                        style={{ fontSize: width < 540 ? "6rem" : "11rem" }}
                         className="font-akira"
                     />
                     <p className='w-fit flex items-center justify-center gap-1 h-10 px-6 md:px-4 sm:px-2 rounded-full bg-slate-100/10 backdrop-blur-md font-clash font-medium text-lg text-center sm:text-xs tracking-wider'>I specialize in crafting full-stack MERN applications that turn ideas into reliable, intuitive, and goal-oriented web products.</p>
@@ -198,11 +190,10 @@ export default function Home() {
                                 </div>
                                 <div className="relative mt-4 overflow-hidden -rotate-1 opacity-15">
                                     <div className="mt-6 mb-2 bg-slate-200" />
-
                                     <ScrollVelocity
                                         texts={["MONGODB ✦ EXPRESSJS ✦ REACTJS ✦ NODEJS ✦ "]}
                                         velocity={40}
-                                        className="custom-scroll-text font-poppins-md whitespace-nowrap text-gray-900"
+                                        className="font-akira whitespace-nowrap text-gray-900"
                                     />
                                     <div className="mt-2 bg-slate-200" />
                                     <div className="absolute top-0 left-0 w-24 h-full pointer-events-none bg-gradient-to-r from-white to-transparent" />
@@ -251,83 +242,83 @@ export default function Home() {
                         <div className="text-8xl font-akira text-left">CERTIFICATIONS</div>
                         <p className="font-clash text-xl text-left font-medium">I certtified in Skills that will be more helpful.</p>
                         <div className="w-full h-full flex flex-row mt-4 gap-2 relative">
-                        {
-                            initialAwards.map((c, i) => (
-                                    <div key={i} className="rounded-sm p-2 bg-gray-800 w-1/2 h-fit flex flex-row gap-2">
-                                        <img src={c.image} alt={c.title} loading="lazy" className="w-1/2 object-cover rounded-sm" />
-                                        <div className="w-full">
-                                            <p className="text-xl font-clash font-semibold text-gray-50">{c.title || "Clashis"}</p>
-                                            <p className="text-lg font-clash font-normal text-gray-50 mt-1">{c.institute || "Certified in Skills that will be more helpful."}</p>
-                                            <p className="text-sm font-clash font-normal text-gray-50">{c.date || "Certified in Skills that will be more helpful."}</p>
+                            {
+                                initialAwards.map((c, i) => (
+                                    <div key={i} className="rounded-sm p-2 shadow-inner w-1/4 h-fit flex flex-col gap-2">
+                                        <Lens>
+                                            <img src={c.image} alt={c.title} loading="lazy" className="w-full object-cover rounded-sm" />
+                                        </Lens>
+                                        <div className="w-full text-gray-950">
+                                            <p className="text-lg font-clash font-semibold ">{c.title || "Clashis"}</p>
                                             
+                                            <div className="text-sm font-clash font-medium tracking-wide flex items-center cursor-pointer" onClick={() => window.open(c.url, "_blank")}>{c.institute}<ArrowUpRight className="size-6" /></div>
+                                            <p className="text-xs font-medium font-clash tracking-wider">{c.date || "Certified in Skills that will be more helpful."}</p>
+
                                         </div>
                                     </div>
-                            ))
-                        }
-                    </div>
-                </div>
-            </div>
-            <div className="sticky top-26 h-svh flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
-                <div className="text-8xl font-akira text-left">SKILLS</div>
-                <p className="font-clash text-xl text-left font-medium">The Professional Skills that Helps Me to Develop Scalable Sites.</p>
-                <div className="w-full h-full grid grid-cols-3 grid-rows-1 mt-4 gap-2">
-                    <div className="p-2 flex flex-col gap-2">
-                        <p className="font-akira text-3xl">FRONTEND TECHNOLOGIES</p>
-                        <img src="/images/ui.png" alt="uis" />
-                        <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
-                            {
-                                frontendSkills.map((s, i) => {
-                                    const Icon = s.icon;
-                                    return (
-                                        <div className="w-full bg-black h-10 items-center gap-2 flex p-3" key={i}>
-                                            <Icon className="text-white text-xl" />
-                                            <p className="text-white text-xl font-clash font-medium">{s.label}</p>
-                                            <p className="text-lg font-clash text-white"></p>
-                                        </div>
-                                    )
-                                })
-                            }
-                        </div>
-                    </div>
-                    <div className="p-2 flex flex-col gap-2">
-                        <p className="font-akira text-3xl">BACKEND TECHNOLOGIES</p>
-                        <img src="/images/ui.png" alt="uis" />
-                        <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
-                            {
-                                backendSkills.map((s, i) => {
-                                    const Icon = s.icon;
-                                    return (
-                                        <div className="w-full bg-black h-10 items-center gap-2 flex p-3" key={i}>
-                                            <Icon className="text-white text-xl" />
-                                            <p className="text-white text-xl font-clash font-medium">{s.label}</p>
-                                            <p className="text-lg font-clash text-white"></p>
-                                        </div>
-                                    )
-                                })
-                            }
-                        </div>
-                    </div>
-                    <div className="p-2 flex flex-col gap-2">
-                        <p className="font-akira text-3xl">CLOUD TECHNOLOGIES</p>
-                        <img src="/images/ui.png" alt="uis" />
-                        <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
-                            {
-                                cloudSkills.map((s, i) => {
-                                    const Icon = s.icon;
-                                    return (
-                                        <div className="w-full bg-black h-10 items-center gap-2 flex p-3" key={i}>
-                                            <Icon className="text-white text-xl" />
-                                            <p className="text-white text-xl font-clash font-medium">{s.label}</p>
-                                            <p className="text-lg font-clash text-white"></p>
-                                        </div>
-                                    )
-                                })
+                                ))
                             }
                         </div>
                     </div>
                 </div>
+                <div className="sticky top-26 h-svh flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
+                    <div className="text-8xl font-akira text-left">SKILLS</div>
+                    <p className="font-clash text-xl text-left font-medium">The Professional Skills that Helps Me to Develop Scalable Sites.</p>
+                    <div className="w-full h-full grid grid-cols-3 grid-rows-1 mt-4 gap-2">
+                        <div className="p-2 flex flex-col gap-2">
+                            <p className="font-akira text-3xl">FRONTEND TECHNOLOGIES</p>
+                            <img src="/images/ui.png" alt="uis" />
+                            <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
+                                {
+                                    frontendSkills.map((s, i) => {
+                                        const Icon = s.icon;
+                                        return (
+                                            <div className="w-full shadow-inner h-10 items-center gap-2 flex p-3" key={i}>
+                                                <Icon className="text-gray-950 size-4" />
+                                                <p className="text-sm font-clash font-medium">{s.label}</p>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                        <div className="p-2 flex flex-col gap-2">
+                            <p className="font-akira text-3xl">BACKEND TECHNOLOGIES</p>
+                            <img src="/images/ui.png" alt="uis" />
+                            <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
+                                {
+                                    backendSkills.map((s, i) => {
+                                        const Icon = s.icon;
+                                        return (
+                                            <div className="w-full shadow-inner h-10 items-center gap-2 flex p-3" key={i}>
+                                                <Icon className="text-gray-950 size-4" />
+                                                <p className="text-sm font-clash font-medium">{s.label}</p>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                        <div className="p-2 flex flex-col gap-2">
+                            <p className="font-akira text-3xl">CLOUD TECHNOLOGIES</p>
+                            <img src="/images/ui.png" alt="uis" />
+                            <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
+                                {
+                                    cloudSkills.map((s, i) => {
+                                        const Icon = s.icon;
+                                        return (
+                                            <div className="w-full shadow-inner h-10 items-center gap-2 flex p-3" key={i}>
+                                                <Icon className="text-gray-950 size-4" />
+                                                <p className="text-sm font-clash font-medium">{s.label}</p>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
 
 

@@ -218,7 +218,18 @@ export default function Home() {
                         <div className="text-8xl font-akira text-left">PROJECTS !</div>
                         <p className="font-clash text-xl text-left font-medium">These Projects that Realy Solves Problems.</p>
                     </div>
-                    <div className="w-full h-full grid grid-cols-3 grid-rows-1">
+                    <div className="w-full h-full grid grid-cols-1 grid-rows-2 md:grid-cols-2 gap-4">
+                        <div className="p-1 shadow-inner rounded-sm">
+                            <Lens>
+                                <img src="/images/projects/one-manage.png" className="rounded-sm" alt="one-manage.vercel.app" />
+                            </Lens>
+                            <div className="w-full flex justify-between items-center">
+                                <p className="font-clash font-semibold text-lg tracking-wider">OneManage</p>
+                                <p className="font-clash text-sm tracking-wider">employee management system</p>
+                            </div>
+                            <p className="font-clash font-semibold text-lg tracking-wider"></p>
+                        </div>
+
                         {
                             // projects.map((p, i) => (
                             //     <div className="w-1/2" key={i}>
@@ -250,7 +261,7 @@ export default function Home() {
                                         </Lens>
                                         <div className="w-full text-gray-950">
                                             <p className="text-lg font-clash font-semibold ">{c.title || "Clashis"}</p>
-                                            
+
                                             <div className="text-sm font-clash font-medium tracking-wide flex items-center cursor-pointer" onClick={() => window.open(c.url, "_blank")}>{c.institute}<ArrowUpRight className="size-6" /></div>
                                             <p className="text-xs font-medium font-clash tracking-wider">{c.date || "Certified in Skills that will be more helpful."}</p>
 
@@ -267,7 +278,7 @@ export default function Home() {
                     <div className="w-full h-full grid grid-cols-3 grid-rows-1 mt-4 gap-2">
                         <div className="p-2 flex flex-col gap-2">
                             <p className="font-akira text-3xl">FRONTEND TECHNOLOGIES</p>
-                            <img src="/images/ui.png" alt="uis" />
+
                             <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
                                 {
                                     frontendSkills.map((s, i) => {
@@ -284,7 +295,6 @@ export default function Home() {
                         </div>
                         <div className="p-2 flex flex-col gap-2">
                             <p className="font-akira text-3xl">BACKEND TECHNOLOGIES</p>
-                            <img src="/images/ui.png" alt="uis" />
                             <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
                                 {
                                     backendSkills.map((s, i) => {
@@ -301,7 +311,6 @@ export default function Home() {
                         </div>
                         <div className="p-2 flex flex-col gap-2">
                             <p className="font-akira text-3xl">CLOUD TECHNOLOGIES</p>
-                            <img src="/images/ui.png" alt="uis" />
                             <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
                                 {
                                     cloudSkills.map((s, i) => {

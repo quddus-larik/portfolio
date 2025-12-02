@@ -3,7 +3,7 @@
 import { Lenis } from "lenis/react"
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { SiClerk, SiCss3, SiDribbble, SiExpress, SiGit, SiGithub, SiHtml5, SiMongodb, SiMysql, SiNextdotjs, SiNextui, SiNodedotjs, SiNpm, SiPnpm, SiReact, SiRedis, SiRender, SiSass, SiShadcnui, SiSupabase, SiTailwindcss, SiVercel } from 'react-icons/si';
+import { SiClerk, SiCss3, SiDribbble, SiExpress, SiGit, SiGithub, SiGithubsponsors, SiHtml5, SiMongodb, SiMysql, SiNextdotjs, SiNextui, SiNodedotjs, SiNpm, SiPnpm, SiReact, SiRedis, SiRender, SiSass, SiShadcnui, SiSupabase, SiTailwindcss, SiVercel } from 'react-icons/si';
 import { RevealText } from '@/components/custom/revealtext';
 // Removed unused Spotlight
 import BounceCards from '@/components/BounceCards';
@@ -227,7 +227,13 @@ export default function Home() {
                                 <p className="font-clash font-semibold text-lg tracking-wider">OneManage</p>
                                 <p className="font-clash text-sm tracking-wider">employee management system</p>
                             </div>
-                            <p className="font-clash font-medium text-xs tracking-wider hover:text-shadow-md cursor-pointer transition-all" onClick={()=> window.open("https://one-manage.vercel.app","_blank")}>one-manage.vercel.app</p>
+                            <div className="w-full flex justify-between items-center">
+                                <p className="font-clash font-medium text-xs tracking-wider hover:text-shadow-md cursor-pointer transition-all" onClick={() => window.open("https://one-manage.vercel.app", "_blank")}>one-manage.vercel.app</p>
+                                <div>
+                                <Button className="font-clash text-sm tracking-wider rounded-none" size={"icon"}><SiGithub/></Button>
+                                <Button className="font-clash text-sm tracking-wider rounded-none"><ArrowUpRight/>Issues</Button>
+                            </div>
+                            </div>
                         </div>
 
                         {

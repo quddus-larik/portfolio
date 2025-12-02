@@ -298,6 +298,7 @@ export default function Home() {
                                     })
                                 }
                             </div>
+                            <p className="font-clash font-medium">As a full stack javascript developer I not only focus on Backend also concentrate on security and </p>
                         </div>
                         <div className="p-2 flex flex-col gap-2">
                             <p className="font-akira text-3xl">BACKEND TECHNOLOGIES</p>

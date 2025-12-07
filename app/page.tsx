@@ -20,11 +20,36 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
     const { height, width } = useWindowSize();
-    console.log("width:" ,width);
+    console.log("width:", width);
 
     const projects = [
-        { title: 'oneManage', date: '2025', url: 'https://one-manage.vercel.app/', label: 'employee management system', img: '/images/projects/one-manage.png', giturl: 'https://github.com/quddus-larik/oneManage', alt: 'one-manage.vercel.app' },
-        { title: 'leeHooks', date: '2025', url: 'https://lixril.vercel.app/', label: 'react.js hooks npm package', img: '/images/projects/leehooks.png', giturl: 'https://github.com/lixril/leeHooks', alt: 'lixril.vercel.app' }
+        {
+            title: 'oneManage',
+            date: '2025', 
+            url: 'https://one-manage.vercel.app/', 
+            label: 'employee management system', 
+            img: '/images/projects/one-manage.png', 
+            giturl: 'https://github.com/quddus-larik/oneManage', 
+            alt: 'one-manage.vercel.app'
+        },
+        {
+            title: 'leeHooks',
+            date: '2025', 
+            url: 'https://lixril.vercel.app/', 
+            label: 'react.js hooks npm package', 
+            img: '/images/projects/leehooks.png', 
+            giturl: 'https://github.com/lixril/leeHooks', 
+            alt: 'lixril.vercel.app'
+        },
+        {
+            title: 'memog',
+            date: '2024', 
+            url: 'https://memog.netlify.app/', 
+            label: 'memeory cards game', 
+            img: '/images/projects/memog.png', 
+            giturl: 'https://github.com/quddus-larik/Memory-game', 
+            alt: 'memog.netlify.app'
+        }
     ];
 
     const images = [
@@ -142,21 +167,21 @@ export default function Home() {
                     className={""}
                 />
                 <div className='absolute left-1/2 -translate-x-1/2 top-30 w-full flex flex-col items-center justify-center gap-2 pt-16'>
-                            <Shuffle
-                                text="{ QUDDUS }"
-                                shuffleDirection="left"
-                                duration={0.35}
-                                animationMode="evenodd"
-                                shuffleTimes={1}
-                                ease="power3.out"
-                                stagger={0.03}
-                                threshold={0.1}
-                                triggerOnce={false}
-                                triggerOnHover={true}
-                                respectReducedMotion={true}
-                                className={'font-akira font-bold text-2xl lg:text-9xl md:text-8xl sm:text-3xl'}
-                            />
-                    {width < 768? (<p className="w-fit flex items-center justify-center gap-1 h-10 px-4 rounded-full bg-slate-100/10 backdrop-blur-md font-clash font-medium text-sm text-center sm:text-xs tracking-wider">scroll down<ArrowDown className="size-4"/></p>) : (<p className='w-fit flex items-center justify-center gap-1 h-10 px-6 md:px-4 sm:px-2 rounded-full bg-slate-100/10 backdrop-blur-md font-clash font-medium text-lg text-center sm:text-xs tracking-wider'>I specialize in crafting full-stack MERN applications that turn ideas into reliable, intuitive, and goal-oriented web products.</p>)}
+                    <Shuffle
+                        text="{ QUDDUS }"
+                        shuffleDirection="left"
+                        duration={0.35}
+                        animationMode="evenodd"
+                        shuffleTimes={1}
+                        ease="power3.out"
+                        stagger={0.03}
+                        threshold={0.1}
+                        triggerOnce={false}
+                        triggerOnHover={true}
+                        respectReducedMotion={true}
+                        className={'font-akira font-bold text-2xl lg:text-9xl md:text-8xl sm:text-3xl'}
+                    />
+                    {width < 768 ? (<p className="w-fit flex items-center justify-center gap-1 h-10 px-4 rounded-full bg-slate-100/10 backdrop-blur-md font-clash font-medium text-sm text-center sm:text-xs tracking-wider">scroll down<ArrowDown className="size-4" /></p>) : (<p className='w-fit flex items-center justify-center gap-1 h-10 px-6 md:px-4 sm:px-2 rounded-full bg-slate-100/10 backdrop-blur-md font-clash font-medium text-lg text-center sm:text-xs tracking-wider'>I specialize in crafting full-stack MERN applications that turn ideas into reliable, intuitive, and goal-oriented web products.</p>)}
                 </div>
             </div>
 
@@ -165,7 +190,7 @@ export default function Home() {
                     <div className="flex flex-col gap-4 w-full h-full">
                         <div className="col-span-full row-span-2 sm:col-span-full sm:row-span-auto w-full bg-transparent grid place-content-center">
                             <BounceCards
-                                containerWidth={width > 300? 100 : 300}
+                                containerWidth={width > 300 ? 100 : 300}
                                 containerHeight={250}
                                 images={images}
                                 animationDelay={1}
@@ -233,7 +258,7 @@ export default function Home() {
                     <div className="w-full h-full grid grid-cols-1 grid-rows-2 md:grid-cols-2 gap-4">
                         {
                             projects.map((itm, idx) => (
-                                <div key={idx+1} className="p-1 shadow-inner rounded-sm">
+                                <div key={idx + 1} className="p-1 shadow-inner rounded-sm">
                                     <Lens>
                                         <img src={itm.img} className="rounded-sm" alt={itm.title} />
                                     </Lens>
@@ -256,17 +281,17 @@ export default function Home() {
                         }
                     </div>
                 </div>
-                </div>
-                <div className="relative">
-                <div className="sticky top-0 h-svh flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
+            </div>
+            <div>
+                <div className="flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
                     <div className="w-[200px] h-8 text-white bg-gray-900 my-2 ml-6 text-2xl" />
                     <div>
-                        <div className="text-8xl font-akira text-left">CERTIFICATIONS</div>
+                        <div className="text-2xl md:text-4xl lg:text-8xl font-akira text-left">CERTIFICATIONS</div>
                         <p className="font-clash text-xl text-left font-medium">I certtified in Skills that will be more helpful.</p>
-                        <div className="w-full h-full flex flex-row mt-4 gap-2 relative">
+                        <div className="w-full h-full grid grid-cols-1 grid-rows-2 md:grid-cols-2 mt-4 gap-2">
                             {
                                 initialAwards.map((c, i) => (
-                                    <div key={i} className="rounded-sm p-1 shadow-inner w-1/4 h-fit flex flex-col gap-2">
+                                    <div key={i} className="rounded-sm p-1 shadow-inner w-full h-fit flex flex-col gap-2">
                                         <Lens>
                                             <img src={c.image} alt={c.title} loading="lazy" className="w-full object-cover rounded-sm" />
                                         </Lens>
@@ -282,9 +307,9 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                <div className="sticky top-26 h-auto flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
+                <div className="h-auto flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
                     <div className="text-8xl font-akira text-left">SKILLS</div>
-                    <p className="font-clash text-xl text-left font-medium">The Professional Skills that Helps Me to Develop Scalable Sites.</p>
+                    <p className="font-clash text-xl text-left font-medium">The Professional Skills that Helps Me to Develop Scalable Web Applications.</p>
                     <div className="w-full h-full grid grid-cols-3 grid-rows-1 mt-4 gap-2">
                         <div className="p-2 flex flex-col gap-2">
                             <p className="font-akira text-3xl">FRONTEND TECHNOLOGIES</p>

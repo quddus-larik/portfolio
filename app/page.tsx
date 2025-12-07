@@ -10,7 +10,7 @@ import BounceCards from '@/components/BounceCards';
 import Shuffle from '@/components/Shuffle';
 import PixelBlast from '@/components/PixelBlast';
 import { Button } from '@/components/ui/button';
-import { ArrowUpRight, Star } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Star } from "lucide-react";
 import { Lens } from "@/components/ui/lens";
 import { useWindowSize } from "@/hooks";
 import ScrollVelocity from "@/components/custom/ScrollVelocity";
@@ -20,7 +20,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
     const { height, width } = useWindowSize();
+    console.log("width:" ,width);
 
+    const projects = [
+        { title: 'oneManage', date: '2025', url: 'https://one-manage.vercel.app/', label: 'employee management system', img: '/images/projects/one-manage.png', giturl: 'https://github.com/quddus-larik/oneManage', alt: 'one-manage.vercel.app' },
+        { title: 'leeHooks', date: '2025', url: 'https://lixril.vercel.app/', label: 'react.js hooks npm package', img: '/images/projects/leehooks.png', giturl: 'https://github.com/lixril/leeHooks', alt: 'lixril.vercel.app' }
+    ];
 
     const images = [
         "/images/mongo.png",
@@ -56,7 +61,7 @@ export default function Home() {
             date: "June 2025"
         },
         {
-            title: "MySQL Database",
+            title: "SQL Database",
             institute: "codeSignal Inc",
             description: "I had learnt Structured Query Language for development scalable and reliable databases.",
             url: "https://codesignal.com/",
@@ -84,6 +89,15 @@ export default function Home() {
         { icon: SiHtml5, label: 'HTML 5' },
         { icon: SiCss3, label: 'CSS 3' }
     ];
+
+    const securitySkills = [
+        { label: 'PRPL Pattern' },
+        { label: 'Content Security Policy' },
+        { label: 'CORS Restrictions' },
+        { label: 'XSS Preventation' },
+        { label: 'HTTPS Caching' },
+        { label: 'DB Indexing' },
+    ]
 
     const backendSkills = [
         { icon: SiNodedotjs, label: 'Node JS' },
@@ -128,22 +142,21 @@ export default function Home() {
                     className={""}
                 />
                 <div className='absolute left-1/2 -translate-x-1/2 top-30 w-full flex flex-col items-center justify-center gap-2 pt-16'>
-                    <Shuffle
-                        text="{ QUDDUS }"
-                        shuffleDirection="left"
-                        duration={0.35}
-                        animationMode="evenodd"
-                        shuffleTimes={1}
-                        ease="power3.out"
-                        stagger={0.03}
-                        threshold={0.1}
-                        triggerOnce={false}
-                        triggerOnHover={true}
-                        respectReducedMotion={true}
-                        style={{ fontSize: width < 540 ? "6rem" : "11rem" }}
-                        className="font-akira"
-                    />
-                    <p className='w-fit flex items-center justify-center gap-1 h-10 px-6 md:px-4 sm:px-2 rounded-full bg-slate-100/10 backdrop-blur-md font-clash font-medium text-lg text-center sm:text-xs tracking-wider'>I specialize in crafting full-stack MERN applications that turn ideas into reliable, intuitive, and goal-oriented web products.</p>
+                            <Shuffle
+                                text="{ QUDDUS }"
+                                shuffleDirection="left"
+                                duration={0.35}
+                                animationMode="evenodd"
+                                shuffleTimes={1}
+                                ease="power3.out"
+                                stagger={0.03}
+                                threshold={0.1}
+                                triggerOnce={false}
+                                triggerOnHover={true}
+                                respectReducedMotion={true}
+                                className={'font-akira font-bold text-2xl lg:text-9xl md:text-8xl sm:text-3xl'}
+                            />
+                    {width < 768? (<p className="w-fit flex items-center justify-center gap-1 h-10 px-4 rounded-full bg-slate-100/10 backdrop-blur-md font-clash font-medium text-sm text-center sm:text-xs tracking-wider">scroll down<ArrowDown className="size-4"/></p>) : (<p className='w-fit flex items-center justify-center gap-1 h-10 px-6 md:px-4 sm:px-2 rounded-full bg-slate-100/10 backdrop-blur-md font-clash font-medium text-lg text-center sm:text-xs tracking-wider'>I specialize in crafting full-stack MERN applications that turn ideas into reliable, intuitive, and goal-oriented web products.</p>)}
                 </div>
             </div>
 
@@ -152,7 +165,7 @@ export default function Home() {
                     <div className="flex flex-col gap-4 w-full h-full">
                         <div className="col-span-full row-span-2 sm:col-span-full sm:row-span-auto w-full bg-transparent grid place-content-center">
                             <BounceCards
-                                containerWidth={300}
+                                containerWidth={width > 300? 100 : 300}
                                 containerHeight={250}
                                 images={images}
                                 animationDelay={1}
@@ -177,8 +190,7 @@ export default function Home() {
                                         triggerOnce={false}
                                         triggerOnHover={true}
                                         respectReducedMotion={true}
-                                        style={{ fontSize: width < 640 ? '2rem' : '4rem', }}
-                                        className="font-akira"
+                                        className='font-akira text-2xl md:text-4xl'
                                     />
                                     <RevealText duration={1} >
                                         <div className='font-clash font-medium lg:text-xl sm:text-sm md:text-lg text-left'>Skilled in  MongoDB, Express.js, React, and Node. with a strong commitment to building intuitive user experiences and writing efficient, maintainable code. Dedicated to turning ideas into real-world digital solutions and always eager to collaborate, learn, and grow through impactful projects.</div>
@@ -206,53 +218,46 @@ export default function Home() {
                 </div>
             </div>
             <div className="relative">
-                <div className="sticky top-0 h-svh flex flex-col items-start justify-start bg-gray-100 px-8 py-3">
+                <div className="sticky top-0 min-h-svh flex flex-col items-start justify-start bg-gray-100 px-8 py-3">
                     <div className="w-[200px] h-8 text-white bg-gray-900 my-2 text-2xl" />
                     <RevealText duration={1}>
-                        <div className="text-8xl font-akira text-left">I CREATE EXPERIENCES NOT JUST WEBSITES!</div>
+                        <div className="lg:text-8xl md:text-5xl text-2xl font-akira text-left">I CREATE EXPERIENCES NOT JUST WEBSITES!</div>
                     </RevealText>
                 </div>
-                <div className="sticky top-13 h-svh flex gap-2 flex-col items-start justify-start bg-gray-200 px-8 py-3">
+                <div className="sticky top-0 min-h-svh flex gap-2 flex-col items-start justify-start bg-gray-200 px-8 py-3">
                     <div className="w-[200px] h-10 text-white bg-gray-900 my-2 ml-3 text-2xl" />
                     <div>
-                        <div className="text-8xl font-akira text-left">PROJECTS !</div>
-                        <p className="font-clash text-xl text-left font-medium">These Projects that Realy Solves Problems.</p>
+                        <div className="lg:text-8xl md:text-5xl text-2xl font-akira text-left">PROJECTS !</div>
+                        <p className="font-clash text-sm md:text-xl text-left font-medium">These Projects that Realy Solves Problems.</p>
                     </div>
                     <div className="w-full h-full grid grid-cols-1 grid-rows-2 md:grid-cols-2 gap-4">
-                        <div className="p-1 shadow-inner rounded-sm">
-                            <Lens>
-                                <img src="/images/projects/one-manage.png" className="rounded-sm" alt="one-manage.vercel.app" />
-                            </Lens>
-                            <div className="w-full flex justify-between items-center">
-                                <p className="font-clash font-semibold text-lg tracking-wider">OneManage</p>
-                                <p className="font-clash text-sm tracking-wider">employee management system</p>
-                            </div>
-                            <div className="w-full flex justify-between items-center">
-                                <p className="font-clash font-medium text-xs tracking-wider hover:text-shadow-md cursor-pointer transition-all" onClick={() => window.open("https://one-manage.vercel.app", "_blank")}>one-manage.vercel.app</p>
-                                <div>
-                                <Button className="font-clash text-sm tracking-wider rounded-none" size={"icon"}><SiGithub/></Button>
-                                <Button className="font-clash text-sm tracking-wider rounded-none"><ArrowUpRight/>Issues</Button>
-                            </div>
-                            </div>
-                        </div>
-
                         {
-                            // projects.map((p, i) => (
-                            //     <div className="w-1/2" key={i}>
-                            //         <Lens>
-                            //             <img src={p.image} alt={p.title} />
-                            //         </Lens>
-                            //         <p className="font-clash font-semibold text-2xl">{p.title}</p>
-                            //         <p className="font-clash text-lg">{p.description}</p>
-                            //         <div className="flex flex-row gap-1 items-center mt-3">
-                            //             <Button size={"icon"} className="rounded-none"><SiGithub /></Button>
-                            //             <Button className="rounded-none">Explore<ArrowUpRight /></Button>
-                            //         </div>
-                            //     </div>
-                            // ))
+                            projects.map((itm, idx) => (
+                                <div key={idx+1} className="p-1 shadow-inner rounded-sm">
+                                    <Lens>
+                                        <img src={itm.img} className="rounded-sm" alt={itm.title} />
+                                    </Lens>
+                                    <div className="w-full flex justify-between items-center">
+                                        <p className="font-clash font-semibold text-lg tracking-wider">{itm.title}</p>
+                                        <p className="font-clash text-sm tracking-wider">{itm.label}</p>
+                                    </div>
+                                    <div className="w-full flex justify-between items-center">
+                                        <div className="flex flex-col gap-1 self-start items-start justify-start">
+                                            <p className="font-clash font-medium text-xs tracking-wider cursor-pointer hover:border-b-[1px] border-black" onClick={() => window.open(itm.url)}>{itm.alt}</p>
+                                            <p className="font-clash font-medium text-xs tracking-wider">{itm.date}</p>
+                                        </div>
+                                        <div>
+                                            <Button className="font-clash text-sm tracking-wider rounded-none" size={"icon"} onClick={() => window.open(itm.giturl)}><SiGithub /></Button>
+                                            <Button className="font-clash text-sm tracking-wider rounded-none" onClick={() => window.open(`${itm.giturl}/issues`)}><ArrowUpRight />Issues</Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))
                         }
                     </div>
                 </div>
+                </div>
+                <div className="relative">
                 <div className="sticky top-0 h-svh flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
                     <div className="w-[200px] h-8 text-white bg-gray-900 my-2 ml-6 text-2xl" />
                     <div>
@@ -261,14 +266,13 @@ export default function Home() {
                         <div className="w-full h-full flex flex-row mt-4 gap-2 relative">
                             {
                                 initialAwards.map((c, i) => (
-                                    <div key={i} className="rounded-sm p-2 shadow-inner w-1/4 h-fit flex flex-col gap-2">
+                                    <div key={i} className="rounded-sm p-1 shadow-inner w-1/4 h-fit flex flex-col gap-2">
                                         <Lens>
                                             <img src={c.image} alt={c.title} loading="lazy" className="w-full object-cover rounded-sm" />
                                         </Lens>
                                         <div className="w-full text-gray-950">
-                                            <p className="text-lg font-clash font-semibold ">{c.title || "Clashis"}</p>
-
-                                            <div className="text-sm font-clash font-medium tracking-wide flex items-center cursor-pointer" onClick={() => window.open(c.url, "_blank")}>{c.institute}<ArrowUpRight className="size-6" /></div>
+                                            <p className="text-lg font-clash font-semibold">{c.title || "___"}</p>
+                                            <div className="text-sm font-clash font-medium w-fit tracking-wide flex items-center cursor-pointer hover:border-b-[1px] border-black" onClick={() => window.open(c.url, "_blank")}>{c.institute}</div>
                                             <p className="text-xs font-medium font-clash tracking-wider">{c.date || "Certified in Skills that will be more helpful."}</p>
 
                                         </div>
@@ -278,7 +282,7 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                <div className="sticky top-26 h-svh flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
+                <div className="sticky top-26 h-auto flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
                     <div className="text-8xl font-akira text-left">SKILLS</div>
                     <p className="font-clash text-xl text-left font-medium">The Professional Skills that Helps Me to Develop Scalable Sites.</p>
                     <div className="w-full h-full grid grid-cols-3 grid-rows-1 mt-4 gap-2">
@@ -298,7 +302,20 @@ export default function Home() {
                                     })
                                 }
                             </div>
-                            <p className="font-clash font-medium">As a full stack javascript developer I not only focus on Backend also concentrate on security and </p>
+                            <p className="font-akira text-3xl">SECURITY TECHNIQUES</p>
+                            <p className="font-clash font-medium text-sm">As a full stack javascript developer I not only focus on Backend also concentrate on security and scalability.</p>
+                            <div className="w-full grid grid-cols-2 grid-rows-4 gap-2">
+                                {
+                                    securitySkills.map((s, i) => {
+
+                                        return (
+                                            <div className="w-full shadow-inner h-10 items-center gap-2 flex p-3" key={i}>
+                                                <p className="text-sm font-clash font-medium">{s.label}</p>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
                         </div>
                         <div className="p-2 flex flex-col gap-2">
                             <p className="font-akira text-3xl">BACKEND TECHNOLOGIES</p>

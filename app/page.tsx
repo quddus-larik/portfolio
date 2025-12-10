@@ -391,7 +391,7 @@ export default function Home() {
                         <Label>Email</Label>
                         <Input type="email" name="email"/>
                         <Label>Message</Label>
-                        <Textarea type="text" name="message"/>
+                        <Textarea name="message"/>
                     </form>
                 </div>
             </div>

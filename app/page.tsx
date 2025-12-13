@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { AboutMe } from "@/components/web/about";
+import { Start } from "@/components/web/home";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -149,7 +150,7 @@ export default function Home() {
     return (
 
         <Lenis root>
-            <Home />
+            <Start />
             <AboutMe images={images} transformStyles={transformStyles} />
             <div className="relative">
                 <div className="sticky top-0 min-h-svh flex flex-col items-start justify-start bg-gray-100 px-8 py-3">

@@ -3,7 +3,7 @@ import PixelBlast from "@/components/PixelBlast";
 import { useWindowSize } from "@/hooks";
 import { ArrowDown } from "lucide-react";
 
-export function Home() {
+export function Start() {
 
     const { width } = useWindowSize();
 

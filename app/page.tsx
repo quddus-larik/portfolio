@@ -15,6 +15,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { AboutMe } from "@/components/web/about";
 import { Start } from "@/components/web/home";
+import { Projects } from "@/components/web/projects";
+import { Quote } from "@/components/web/quote";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -152,46 +154,11 @@ export default function Home() {
         <Lenis root>
             <Start />
             <AboutMe images={images} transformStyles={transformStyles} />
-            <div className="relative">
-                <div className="sticky top-0 min-h-svh flex flex-col items-start justify-start bg-gray-100 px-8 py-3">
-                    <div className="w-[200px] h-8 text-white bg-gray-900 my-2 text-2xl" />
-                    <RevealText duration={1}>
-                        <div className="lg:text-8xl md:text-5xl text-2xl font-akira text-left">I CREATE EXPERIENCES NOT JUST WEBSITES!</div>
-                    </RevealText>
-                </div>
-                <div className="sticky top-0 min-h-svh flex gap-2 flex-col items-start justify-start bg-gray-200 px-8 py-3">
-                    <div className="w-[200px] h-10 text-white bg-gray-900 my-2 ml-3 text-2xl" />
-                    <div>
-                        <div className="lg:text-8xl md:text-5xl text-2xl font-akira text-left">PROJECTS !</div>
-                        <p className="font-clash text-sm md:text-xl text-left font-medium">These Projects that Realy Solves Problems.</p>
-                    </div>
-                    <div className="w-full h-full grid grid-cols-1 grid-rows-2 md:grid-cols-2 gap-4">
-                        {
-                            projects.map((itm, idx) => (
-                                <div key={idx + 1} className="p-1 shadow-inner rounded-sm">
-                                    <Lens>
-                                        <img src={itm.img} className="rounded-sm" alt={itm.title} />
-                                    </Lens>
-                                    <div className="w-full flex justify-between items-center">
-                                        <p className="font-clash font-semibold text-lg tracking-wider">{itm.title}</p>
-                                        <p className="font-clash text-sm tracking-wider">{itm.label}</p>
-                                    </div>
-                                    <div className="w-full flex justify-between items-center">
-                                        <div className="flex flex-col gap-1 self-start items-start justify-start">
-                                            <p className="font-clash font-medium text-xs tracking-wider cursor-pointer hover:border-b-[1px] border-black" onClick={() => window.open(itm.url)}>{itm.alt}</p>
-                                            <p className="font-clash font-medium text-xs tracking-wider">{itm.date}</p>
-                                        </div>
-                                        <div>
-                                            <Button className="font-clash text-sm tracking-wider rounded-none" size={"icon"} onClick={() => window.open(itm.giturl)}><SiGithub /></Button>
-                                            <Button className="font-clash text-sm tracking-wider rounded-none" onClick={() => window.open(`${itm.giturl}/issues`)}><ArrowUpRight />Issues</Button>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))
-                        }
-                    </div>
-                </div>
-            </div>
+            
+        <div className="relative">
+            <Quote />
+            <Projects projects={projects} />
+        </div>
             <div className="flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
                 <div className="w-[200px] h-8 text-white bg-gray-900 my-2 ml-6 text-2xl" />
                 <div>

@@ -17,6 +17,7 @@ import { AboutMe } from "@/components/web/about";
 import { Start } from "@/components/web/home";
 import { Projects } from "@/components/web/projects";
 import { Quote } from "@/components/web/quote";
+import { SplitButton } from "@/components/custom/AnimatedButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -156,8 +157,8 @@ export default function Home() {
             <AboutMe images={images} transformStyles={transformStyles} />
             
         <div className="relative">
-            <Quote />
             <Projects projects={projects} />
+            <Quote />
         </div>
             <div className="flex gap-2 flex-col items-start justify-start bg-gray-50 px-8 py-3">
                 <div className="w-[200px] h-8 text-white bg-gray-900 my-2 ml-6 text-2xl" />

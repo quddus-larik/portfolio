@@ -4,6 +4,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { SplitButton } from "./AnimatedButton";
 
 interface CarouselProps {
     children: React.ReactNode[];
@@ -24,8 +25,18 @@ export function Carousel({ children, className }: CarouselProps) {
 
     return (
         <div className={cn("relative w-full", className)}>
+            <div className="w-full flex items-center justify-end z-20">
+                <SplitButton
+                    onClick={next}
+                    defaultText="next"
+                />
+                <SplitButton
+                    onClick={prev}
+                    defaultText="prev"
+                />
+            </div>
             {/* VIEWPORT */}
-            <div className="overflow-hidden px-[12%]">
+            <div className="overflow-hidden px-[12%] -z-20">
                 <div
                     className="flex gap-6 transition-transform duration-500 ease-out"
                     style={{
@@ -52,27 +63,10 @@ export function Carousel({ children, className }: CarouselProps) {
                 </div>
             </div>
 
-            {/* CONTROLS */}
-            <div className="absolute left-0 top-1/2 h-full -translate-y-1/2 bg-linear-to-r from-gray-200 to-transparent">
-                <Button
-                    size={"icon-sm"}
-                    onClick={prev}
-                    className="rounded-none"
-                >
-                    <ArrowLeft />
-                </Button>
-            </div>
-
-            <div className="absolute right-0 top-1/2 h-full -translate-y-1/2 text-white px-3 py-2 text-xs bg-linear-to-l from-gray-200 to-transparent">
-            <Button
-                size={"icon-sm"}
-                onClick={next}
-                className="rounded-none"
-            >
-                <ArrowRight/>
-            </Button>
-            </div>
-
+            
+            <div className="absolute -z-10 left-0 top-1/2 h-full w-[200px] -translate-y-1/2 bg-linear-to-r from-gray-200 to-transparent"/>
+            <div className="absolute -z-10 right-0 top-1/2 h-full w-[200px] -translate-y-1/2 text-white text-xs bg-linear-to-l from-gray-200 to-transparent"/>
+                
             {/* PROGRESS */}
             <div className="mt-4 h-[3px] bg-black/20 w-full">
                 <div
